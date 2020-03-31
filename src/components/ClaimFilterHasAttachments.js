@@ -6,10 +6,6 @@ import { Grid, FormControlLabel, Checkbox } from "@material-ui/core";
 
 
 
-import {
-    PublishedComponent,
-} from "@openimis/fe-core";
-
 const styles = theme => ({
     item: {
         padding: theme.spacing(1)
@@ -30,16 +26,12 @@ class ClaimFilterHasAttachments extends Component {
         ) {
             this.setState({ withAttachment: this.props.filters['showAttachment']['value'] })
         }
-        //debugger;
-        //this.setState({
-        //    withAttachment:!!(filters['showAttachment'] && filters['showAttachment']['value'])
-        //})
     }
     _onChangeAttachment = () => {
         let filters = [
             {
                 id: 'showAttachment',
-                value: '!this.state.withAttachment',
+                value: !this.state.withAttachment,
                 filter: !this.state.withAttachment ? "attachmentsCount_Value_Gte: 1" : null
             }
         ];
